@@ -1,0 +1,16 @@
+<%include ../partials/header %>
+<form action="/camps/<%=camp._id%>?_method=PUT" method="POST" id='edit'>
+<label>Name</label>   
+<input type="text" placeholder="Name" name="camp[name]" value="<%=camp.name%>">
+<label>Name</label>   
+<input type="number" placeholder="Price" name="camp[price]" value="<%=camp.price%>">
+<label>Name</label>   
+<input type="text" placeholder="Image" name="camp[image]" value="<%=camp.image%>">
+<label>Name</label>   
+<textarea name="camp[description]" form="edit">
+<%=camp.description%>
+</textarea>
+<label>Name</label>   
+<input type="submit">
+</form>
+<%include ../partials/footer %>

@@ -1,0 +1,57 @@
+<%include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Yelp Camp</p>
+            <div class="list-group">
+                <li class="list-group-item">Info 1</li>
+                <li class="list-group-item">Info 2</li>
+                <li class="list-group-item">Info 3</li>
+            </div>
+        </div>
+        <div class=" col-md-9">
+            <figure class="figure img-thumbnail">
+                <img class="img-fluid" src="<%=found.image%>">
+                <div class="caption-full">
+                    <figcaption class="figure-caption text-right"><h4>$<%=found.price%>/night</h4></figcaption>
+                    <h4 class="pull-right"><a href="#"><%=found.name%></a></h4>
+                    <p> <%=found.description%> </p>
+                    <p>
+                        <em>
+                        Created by <%=found.author.username%>
+                        </em>
+                    </p>
+                 <% if(user && found.author.id.equals(user._id)){ %>
+                        <a class="btn btn-xs btn-info" href="/camps/<%= found._id %>/edit">Edit</a>
+                        <form class="delete" action="/camps/<%= found._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+             <% }%>
+                </div>
+            </figure>
+            <div class="alert alert-info">
+                <div class="text-right">
+                    <a href="/camps/<%=found._id%>/comments/new" class='btn btn-success'>Create new comment</a>
+                </div>
+                <hr>
+                 <%found.comments.forEach(function(comment){ %>
+                     <div class="row">
+                         <div class="col-md-12">
+                            <strong><%= comment.author.username %></strong>
+                             <span class="float-right">10 Days ago</span>
+                             <p><%=comment.text%></p>
+                              <% if(user && comment.author.id.equals(user._id)){ %>
+                             <a class="btn btn-xs btn-info" href="/camps/<%=found._id%>/comments/<%=comment._id%>/edit">edit</a>
+                             <form class="delete" action="/camps/<%=found._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                         <% }%>
+                         </div>
+                     </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+    <a href='/camps'>Back</a>
+    </div>
+<%include ../partials/footer %>

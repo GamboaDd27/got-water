@@ -1,0 +1,17 @@
+<%include ../partials/header %>
+<form action="/camps" method="POST" id='new'>
+                 <input type="hidden" value=<%user%> name="camp[author]">
+<label>Name</label>
+             <input type="text" placeholder="Enter the camp's name" name="camp[name]">
+<label>Price</label>
+             <input type="number" placeholder="Enter the amount you have to offer" name="camp[price]" min="0.01" step='0.01'>
+<label>Image</label>
+             <input type="text" placeholder="Enter an image url" name="camp[image]">
+<label>Image</label>
+             <input type="text" placeholder="Enter the camp's location" name="camp[location]">
+<label>Description</label>
+             <textarea name="camp[description]" form="new">Enter text here...</textarea>
+<label>Submit</label>
+             <input type="submit">
+</form>
+<% include ../partials/footer %>

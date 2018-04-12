@@ -1,0 +1,8 @@
+<%include ../partials/header %>
+<form action="/camps/<%=camp_id%>/comments/<%=comment._id%>?_method=PUT" method="POST" id="new">
+<label>Text</label>
+             <input type="text" placeholder="Write a comment" value="<%=comment.text%>" name="comment[text]">
+             <input type="submit">
+
+</form>
+<% include ../partials/footer %>

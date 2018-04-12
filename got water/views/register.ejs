@@ -1,0 +1,11 @@
+<% include partials/header %>
+<h1>Register</h1>
+<form action="/register" method='POST'>
+    <input type="text" placeholder="username" name='username' required>
+    <input type="password" placeholder='password' name='password' required>
+    <input type="submit">
+</form>
+<li><a href="/register">Sign-up</a></li>
+<li><a href="/login">Sign in</a></li>
+<li><a href="/loguot">Sign out</a></li>
+<% include partials/footer %>
